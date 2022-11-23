@@ -1,0 +1,48 @@
+[general]
+#国内测速
+server_check_url=http://baidu.cn/
+#节点查询
+geo_location_checker=http://ip-api.com/json/, https://raw.githubusercontent.com/LYJ09X/V2ray-Pro/main/qx2.js
+#资源解析器
+resource_parser_url=https://raw.githubusercontent.com/LYJ09X/V2ray-Pro/main/zyjxq.js
+[dns]
+#DNS相关勿动
+no-ipv6
+server=162.14.21.56
+server=162.14.21.178
+doh-server = https://doh.pub/dns-query
+
+[policy]
+#割韭菜专用策略
+static=国外全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+static=国内全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+
+[server_remote]
+#机场订阅
+
+[filter_remote]
+# 广告拦截
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=广告拦截, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
+# 重写去广告
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Advertising/Advertising.conf, tag=复写广告, update-interval=86400, opt-parser=false, enabled=true
+
+[server_local]
+
+[filter_local]
+geoip, CN, 国内全局
+final, 国外全局
+
+[rewrite_local]
+# 去微信公众号广告 (By Choler)
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
+#微信屏蔽链接跳转
+^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi url script-response-body https://raw.githubusercontent.com/HotKids/Rules/master/Script/weixin110.js
+
+[task_local]
+#流媒体检测
+event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=📺流媒体服务查询, img-url=checkmark.seal.system, enabled=true
+
+[http_backend]
+
+[mitm]
+#证书域名
