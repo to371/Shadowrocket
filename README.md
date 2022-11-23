@@ -32,7 +32,7 @@
 
 `快速到家`：http://boxjs.com/#/app/xream.10010v3
 
-6、将以下内容加入配置文件中
+6、Shadowrocket 将以下内容加入配置文件中，其他软件参考项目地址：https://github.com/xream/scripts/tree/main/surge/modules/10010v3
 ```
 [MITM]
 hostname = 10010.json
