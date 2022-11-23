@@ -16,13 +16,16 @@ doh-server = https://doh.pub/dns-query
 
 [policy]
 #割韭菜专用策略
-static=国外全局, A节点, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
-static=国内全局, B节点, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+static=国外全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+static=国内全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
 
 [server_remote]
 #机场订阅
 
 [filter_remote]
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Global.list, tag=🌏 国外网站, force-policy=国外全局, update-interval=172800, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/China.list, tag=🐼 国内网站, force-policy=国内全局, update-interval=172800, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Extra/ChinaIP.list, tag=🇨🇳 国内IP池, force-policy=国内全局, update-interval=172800, opt-parser=false, enabled=true
 # 广告拦截
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=广告拦截, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
 
@@ -31,6 +34,8 @@ https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Gua
 [filter_local]
 geoip, CN, 国内全局
 final, 国外全局
+
+[rewrite_remote]
 
 [rewrite_local]
 # 去微信公众号广告 (By Choler)
@@ -43,6 +48,9 @@ final, 国外全局
 event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=📺流媒体服务查询, img-url=checkmark.seal.system, enabled=true
 
 [http_backend]
+#boxjs
+https://raw.githubusercontent.com/chavyleung/scripts/master/chavy.box.js, tag=boxjs, path=^/, enabled=true
 
 [mitm]
 #证书域名
+hostname = 10010.json
