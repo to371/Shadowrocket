@@ -1,3 +1,5 @@
+# 配置来源于网友，略有改动。
+
 [general]
 #国内测速
 server_check_url=http://baidu.cn/
@@ -14,8 +16,8 @@ doh-server = https://doh.pub/dns-query
 
 [policy]
 #割韭菜专用策略
-static=国外全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
-static=国内全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
+static=国外全局, A节点, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+static=国内全局, B节点, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
 
 [server_remote]
 #机场订阅
@@ -23,8 +25,6 @@ static=国内全局, img-url=https://raw.githubusercontent.com/Koolson/Qure/mast
 [filter_remote]
 # 广告拦截
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=广告拦截, force-policy=reject, update-interval=86400, opt-parser=true, enabled=true
-# 重写去广告
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Advertising/Advertising.conf, tag=复写广告, update-interval=86400, opt-parser=false, enabled=true
 
 [server_local]
 
