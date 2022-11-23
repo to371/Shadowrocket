@@ -1,0 +1,129 @@
+# Quantumult 配置  2022-11-23
+
+[general]
+server_check_url=http://cp.cloudflare.com/generate_204
+dns_exclusion_list=*.cmpassport.com, *.jegotrip.com.cn, *.icitymobile.mobi, id6.me
+geo_location_checker=http://ip-api.com/json/?lang=zh-CN, https://raw.githubusercontent.com/Orz-3/Orz-3/master/QuantumultX/IP.js
+resource_parser_url=https://fastly.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/resource-parser.js
+excluded_routes=239.255.255.250/32
+udp_whitelist=1-442, 444-65535
+
+[dns]
+no-ipv6
+server=114.114.114.114
+server=202.141.176.93 
+server=202.141.178.13
+server=117.50.10.10
+server=223.5.5.5
+server=119.29.29.29:53
+server=119.28.28.28
+server=10.10.10.10
+server=10.8.8.8
+
+[policy]
+static=Final, proxy, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+static=Streaming, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Streaming.png
+static=Spotify, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Streaming.png
+
+[server_remote]
+
+
+[filter_remote]
+
+# Block OTA update for iOS
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Module/Block/SoftwareUpdate.sgmodule, tag=⛔️Block OTA Update(iOS), force-policy=reject, update-interval=172800, opt-parser=true, enabled=true
+
+# Unbreak 后续规则修正
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🔂Unbreak, force-policy=direct, update-interval=172800, opt-parser=true, enabled=true
+
+# Advertising 广告
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=🛡Advertising, force-policy=reject, update-interval=172800, opt-parser=true, enabled=true
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/AdvertisingPlus.list#type=domain-set, tag=🛡Advertising+, force-policy=reject, update-interval=172800, opt-parser=true, enabled=true
+
+# Privacy 隐私
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Privacy.list, tag=🛡️Privacy, force-policy=reject, update-interval=172800, opt-parser=true, enabled=true
+
+# Hijacking 运营商劫持或恶意网站
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list, tag=🛡️Hijacking, force-policy=reject, update-interval=172800, opt-parser=true, enabled=true
+
+# Disney+
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/DisneyPlus.list, tag=🎞Disney+, force-policy=Disney+, update-interval=172800, opt-parser=true, enabled=false
+# Netflix
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list, tag=🎞Netflix, force-policy=Netflix, update-interval=172800, opt-parser=true, enabled=false
+# YouTube
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list, tag=🎞YouTube, force-policy=YouTube, update-interval=172800, opt-parser=true, enabled=false
+# Spotify
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Music/Spotify.list, tag=💽Spotify, force-policy=Spotify, update-interval=172800, opt-parser=true, enabled=true
+
+# Streaming 国际流媒体服务
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list, tag=🎞Streaming, force-policy=Streaming, update-interval=172800, opt-parser=true, enabled=true
+
+# Telegram
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list, tag=📨Telegram, force-policy=Telegram, update-interval=172800, opt-parser=true, enabled=false
+
+# Global 全球加速
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list, tag=🇺🇳Global, force-policy=proxy, update-interval=172800, opt-parser=true, enabled=true
+
+# Apple 服务
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=Apple, force-policy=direct, update-interval=172800, opt-parser=true, enabled=true
+
+# China 中国直连
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list, tag=🇨🇳China, force-policy=direct, update-interval=172800, opt-parser=true, enabled=true
+
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/ChinaIP.list, tag=国内节点, force-policy=direct, update-interval=172800, opt-parser=true, enabled=true
+
+[rewrite_remote]
+https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.quanx.conf, tag=boxjs, update-interval=172800, opt-parser=false, enabled=true
+
+# General
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf, tag=🔀General, update-interval=172800, enabled=true
+
+# Block OTA update for iPadOS, Requires "⛔️Block OTA Update(iOS)" filter
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Module/Block/SoftwareUpdate.sgmodule, tag=⛔️Block OTA Update(iPadOS), update-interval=172800, opt-parser=true, enabled=false
+
+# Block Advertising
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/Advertising.conf, tag=🛡Block Advertising, update-interval=172800, enabled=true
+
+# Block Advertising+
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/AdvertisingPlus.conf, tag=🛡Block Advertising+, update-interval=172800, enabled=true
+
+# Block YouTube Ads
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/YouTubeAds.conf, tag=🛡Block YouTube Ads, update-interval=172800, enabled=false
+
+# Block Aweme Ads
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/Block/AwemeAds.conf, tag=🛡Block Aweme Ads(<= 16.2.0), update-interval=172800, enabled=false
+
+[server_local]
+
+
+[filter_local]
+# Local Area Network 局域网
+host-suffix, local, direct
+geoip, cn, direct
+ip-cidr, 192.168.0.0/16, direct
+ip-cidr, 10.0.0.0/8, direct
+ip-cidr, 172.16.0.0/12, direct
+ip-cidr, 127.0.0.0/8, direct
+ip-cidr, 100.64.0.0/10, direct
+ip-cidr, 224.0.0.0/4, direct
+ip6-cidr, fe80::/10, direct
+ip-cidr, 203.107.1.1/24, reject
+ip-cidr, 183.240.197.130/32, direct
+final, Final
+
+[rewrite_local]
+# 去微信公众号广告 (By Choler)
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
+
+#微信屏蔽链接跳转
+^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi url script-response-body https://raw.githubusercontent.com/HotKids/Rules/master/Script/weixin110.js
+
+
+[task_local]
+
+event-interaction https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js, tag=📺流媒体服务查询, img-url=checkmark.seal.system, enabled=true
+
+[http_backend]
+
+[mitm]
+skip_validating_cert = true
